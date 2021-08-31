@@ -8,9 +8,9 @@
 
 int main(void)
 {
-int n, m, p;
+	int n, m, p;
 
-for (n = '0'; n <= '9'; n++)
+	for (n = '0'; n <= '9'; n++)
 	{
 		for (m = '0'; m <= '9'; m++)
 		{
@@ -32,7 +32,7 @@ for (n = '0'; n <= '9'; n++)
 		}
 	}
 
-putchar('\n');
+	putchar('\n');
 
-return (0);
+	return (0);
 }
