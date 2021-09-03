@@ -3,16 +3,21 @@
 /**
  * _isupper - Checks for uppercase characters.
  *
- * @c: The integer argument passed to function.
+ * @c: The ascii code for character to chack
  *
  * Return: 1 when character is upper and 0 when otherwise.
  */
 int _isupper(int c)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-		return (1);
-	else if ((c >= 'a') && (c <= 'z'))
-		return (0);
-	else
-		return (0);
+        int upper;
+
+        if (c >= 65 && c <= 90)
+        {       
+                upper = 1;
+        }       
+        else
+        {       
+                upper = 0;
+        }       
+        return (upper);
 }
