@@ -8,7 +8,7 @@
  * @b: Second integer
  * 
  * Return: Product of two integers
- */
+*/
 int mul(int a, int b)
 {
 	int prod;
