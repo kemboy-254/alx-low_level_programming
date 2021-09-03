@@ -2,8 +2,7 @@
 
 /**
  * _isupper - Checks for uppercase characters.
- *
- * @c: The ascii code for character to chack
+ * @c: The ascii code for character to chack.
  *
  * Return: 1 when character is upper and 0 when otherwise.
  */
