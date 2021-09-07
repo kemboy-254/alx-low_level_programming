@@ -1,4 +1,23 @@
+  
 #include "main.h"
+
+/**
+ * _strlen - Prints length of string.
+ *
+ * @s: character argument passed.
+ *
+ * Return: The length of string.
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (*(s + i) != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 /**
  * print_rev - Prints a string in reverse.
