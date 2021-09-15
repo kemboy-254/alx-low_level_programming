@@ -6,8 +6,16 @@
  */
 void _puts_recursion(char *s)
 {
-	if (*s == '\0')
-		return;
-	printf("%c", *s);
-	_puts_recursion(s + 1);
+	int i;
+
+	if (s[i] != '\0')
+	{
+		_putchar(s[i]);
+		i++;
+		_puts_recursion(&s[i]);
+	}
+	else
+	{
+		_putchar('\n');
+	}
 }
