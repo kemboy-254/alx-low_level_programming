@@ -1,0 +1,24 @@
+#imclude "main.h"
+
+/**
+ * factorial - Prints the factorial of a number
+ * @n: The number to be calculated the factorial of
+ *
+ * Return: The factorial of the number
+ */
+int factorial(int n)
+{
+    if (n < 0)
+    {
+        return (-1);
+    }
+    else if (n == 0)
+    {
+        return (1);
+    }
+    else
+    {
+        n = n * factorial(n-1);
+        return n;
+    }
+}
