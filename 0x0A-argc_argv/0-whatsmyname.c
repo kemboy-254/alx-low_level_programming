@@ -7,9 +7,11 @@
  *
  * Return: Always 0.
  */
-int main(int _attribute_((_unused_)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	int n;
 
+	n = argc - 1;
+	printf("%s\n", argv[n]);
 	return (0);
 }
