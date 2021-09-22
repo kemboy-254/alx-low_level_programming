@@ -9,7 +9,7 @@
 > When the amount of memory is not needed anymore, you must return it to the operating system by calling the function `free`.
 
 > Syntax: 
-`void *malloc(size_t size)` where `size` − This is the size of the memory block, in bytes.
+`void *malloc(size_t size)` where `size` − is the size of the memory block, in bytes.
 
 ### 0. Float like a butterfly, sting like a bee
 
