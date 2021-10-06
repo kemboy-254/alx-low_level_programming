@@ -1,88 +1,86 @@
-#include <stdarg.h>
-#include<stdio.h>
 #include "variadic_functions.h"
-/**
- * print_ch - print a character
- * @ls_args: list of paramethers
- *
- * Return: void
- */
-void print_ch(va_list ls_args)
-{
-	printf("%c", va_arg(ls_args, int));
-}
-/**
- * print_int - print a int
- * @ls_args: list of paramethers
- *
- * Return: void
- */
-void print_int(va_list ls_args)
-{
-	printf("%d", va_arg(ls_args, int));
-}
-/**
- * print_st- print a string
- * @ls_args: list of paramethers
- *
- * Return: void
- */
-void print_st(va_list ls_args)
-{
-	char *st;
 
-	st = va_arg(ls_args, char*);
-	if (st == '\0')
-		st = "(nil)";
-	printf("%s", st);
-}
 /**
- * print_flt- print a float
- * @ls_args: list of paramethers
- *
- * Return: void
+ * print_char - prints a char
+ * @a: char to print
  */
-void print_flt(va_list ls_args)
+void print_char(va_list a)
 {
-	printf("%f", va_arg(ls_args, double));
+	printf("%c", va_arg(a, int));
 }
+
 /**
- *print_all - prints anything.
- *@format: list of arguments passed to the function
- *
- * Return: Always 0 (Success)
+ * print_int - prints an int
+ * @a: int to print
+ */
+void print_int(va_list a)
+{
+	printf("%d", va_arg(a, int));
+}
+
+/**
+ * print_float - prints a float
+ * @a: float to print
+ */
+void print_float(va_list a)
+{
+	printf("%f", va_arg(a, double));
+}
+
+/**
+ * print_string - prints a char
+ * @a: string to print
+ */
+void print_string(va_list a)
+{
+	char *current;
+
+	current = va_arg(a, char *);
+	if (current == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", current);
+}
+
+/**
+ * print_all - prints all args passed to function
+ * @format: list of args to give data types.
  */
 void print_all(const char * const format, ...)
 {
-	in_format arr_st_fm[] = {
-		{"c", print_ch},
+	va_list list;
+	const char *copy;
+	formatter formats[] = {
+		{"c", print_char},
 		{"i", print_int},
-		{"s", print_st},
-		{"f", print_flt},
+		{"f", print_float},
+		{"s", print_string},
 		{NULL, NULL}
 	};
-	int a, b;
-	va_list ls_args;
-	char *empty = "";
-	char *separator = ", ";
+	int i, j;
+	char *sep;
 
-	va_start(ls_args, format);
-	a = 0;
-	while (format != '\0' && format[a] != '\0')
+	sep = "";
+	i = j = 0;
+	copy = format;
+	va_start(list, format);
+	while (copy && copy[j] != '\0')
 	{
-		b = 0;
-		while (arr_st_fm[b].n != '\0')
+		i = 0;
+		while (formats[i].flag)
 		{
-			if (format[a] == arr_st_fm[b].n[0])
+			if (formats[i].flag[0] == copy[j])
 			{
-				printf("%s", empty);
-				arr_st_fm[b].func(ls_args);
-				empty = separator;
+				printf("%s", sep);
+				(formats[i].f)(list);
+				sep = ", ";
 			}
-			b++;
+			i++;
 		}
-		a++;
+		j++;
 	}
-	va_end(ls_args);
 	printf("\n");
+	va_end(list);
 }
