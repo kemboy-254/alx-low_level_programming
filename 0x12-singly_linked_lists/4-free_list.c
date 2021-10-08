@@ -8,8 +8,8 @@ void free_list(list_t *head)
 {
 
 	struct list_s *tmp;
-	
-	if(head == NULL)
+
+	if (head == NULL)
 	{
 		tmp = head;
 		free(tmp);
