@@ -4,8 +4,7 @@
  *
  * Return: Always 0
  */
-int main(void)
+void main(void)
 {
 	printf("Hello, Holberton\n");
-	return (0);
 }
