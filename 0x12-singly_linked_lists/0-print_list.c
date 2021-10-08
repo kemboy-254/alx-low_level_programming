@@ -1,8 +1,7 @@
 #include "lists.h"
 
 /**
- * print_list- Prints all the elements of
- * a list_t list
+ * print_list - Prints all the elements of a list_t list
  * @h: Pointer to node
  *
  * Return: the number of nodes
@@ -18,12 +17,9 @@ size_t print_list(const list_t *h)
 		if (tmp->str == NULL)
 		{
 			printf("[0] (nil)\n");
-			printf("[%d] ", tmp->len);
 		}
 		else
 		{
-			if (tmp->str == NULL)
-				printf("[0] (nil)");
 			printf("[%d] ", tmp->len);
 			printf("%s\n", tmp->str);
 			num++;
