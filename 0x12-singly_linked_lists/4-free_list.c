@@ -8,16 +8,16 @@ void free_list(list_t *head)
 {
 
 	struct list_s *tmp;
-
-	if (head == NULL)
+	
+	if(head == NULL)
+	{
+		tmp = head;
+		free(tmp);
+	}
+	while (head != NULL)
 	{
 		tmp = head;
 		head = head->next;
 		free(tmp);
-	}
-	else
-	{
-		tmp = head;
-		free tmp;
 	}
 }
