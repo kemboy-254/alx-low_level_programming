@@ -7,19 +7,18 @@
 void free_list(list_t *head)
 {
 
-	struct list_s *tmp;
+	list_t *tmp;
 
 	if (head == NULL)
 	{
-		tmp = head;
-		free(tmp);
+		free(head);
 	}
 	else
 	{
-		while (head != NULL)
+		while ((tmp = head) != NULL)
 		{
-			tmp = head;
 			head = head->next;
+			free(tmp->str);
 			free(tmp);
 		}
 	}
